@@ -1,0 +1,22 @@
+.Homepage {
+    text-align: right;
+  }
+  .Homepage-logo {
+    height: 8vmin;
+    pointer-events: none;
+  }
+  .Homepage-display-text {
+    font-size: '1000px';
+     color: #020e11;
+  }
+
+  .Homepage-header {
+    background-color: #1156eb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: rgb(240, 11, 11);
+  }
