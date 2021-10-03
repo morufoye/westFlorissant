@@ -2,43 +2,37 @@ import React,  { useState } from 'react';
 import Button from './Button';
 import './FormInputStyle.css';
 import Card from '../components/UI/Card';
+import { useForm } from 'react-hook-form';
 
 const LogIn = (props) => {
-    const[userName, setUserName] = useState('');
-    const[password, setPassword] = useState('');
 
-    const logInHandler = (event) => {
-        event.preventDefault(); 
-       
-      props.onLogIn(userName, password);
-       setUserName("");
-       setPassword("");
-     };
-    
-    const userNameChangeHandler = (event) => {
-        setUserName(event.target.value);
+    const logInHandler = (data) => {
+        props.onLogIn(data.username, data.password);
     };
-     const passwordChangeHandler = (event) => {
-        setPassword(event.target.value);
-    }
-    
+
+    const { register, handleSubmit, formState: { errors },} = useForm ();
+
+
     return (
         <Card>
-        <form className="form-login" onSubmit = {logInHandler}>
-        <div className="form-control">
-             <label htmlFor="username" className="form-control label"> UserName</label>
-             <input className="form-control input" id="username" type="text" value={userName} onChange={userNameChangeHandler} required></input>
-        </div> 
-        <div className="form-control">    
-             <label  className="form-control label" htmlFor="password"> Password</label>
-             <input  className="form-control input" id="pass" type="password" value={password} onChange={passwordChangeHandler} required/>
-             <Button type="sbbmit">Log In</Button>
-         </div>
-       </form>
-       </Card>
-   
-   );    
-}
+            <form className="form-login" onSubmit = {handleSubmit(logInHandler )}>
+                <div className="form-control">
+                    <label htmlFor="username" className="form-control label"> UserName</label>
+                    <input {...register('username', { required: true })}/>
+                    {errors.username && <p>Enter your username</p>}
+                </div>
+                <div className="form-control">
+                    <label  className="form-control label" htmlFor="password"> Password</label>
+                    <input type="password" {...register('password', { required: true })}/>
+                    {errors.password && <p>enter password</p>}
+                    </div>
+                        <Button type="Submit">Log In</Button>
+
+                    </form>
+                        </Card>
+
+                        );
+                    }
 
 
-export default LogIn;
+                    export default LogIn;

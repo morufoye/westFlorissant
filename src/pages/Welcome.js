@@ -8,7 +8,11 @@ const Welcome = (props) => {
     {props.isvalid ? 
     <p> {props.username} , you are welcome to West Florissant Masjid web portal </p>
      :
-     <p>Welcome to West Florissant Masjid Web Portal. </p>
+        <div>
+     <p style={{fontSize: "20"}}>West Florissant Masjid</p>
+       <p style={{fontSize: "10"}}>St Louis</p>
+       <p style={{fontSize: "10"}}>6809 West Florissant Avenue, St. Louis, MO</p>
+        </div>
     }
     </Card>
   );

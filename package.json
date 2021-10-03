@@ -2,16 +2,18 @@
   "name": "react-complete-guide",
   "version": "0.1.0",
   "private": true,
-
   "dependencies": {
+    "@babel/plugin-syntax-jsx": "^7.14.5",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
     "axios": "^0.21.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-hook-form": "^7.15.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-table": "^7.6.3",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -20,9 +22,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-
-
-
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -40,5 +39,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.11.5",
+    "@babel/plugin-proposal-throw-expressions": "^7.11.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.13.8",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-react": "^7.11.5"
   }
 }

@@ -6,28 +6,25 @@ import LogIn from './pages/LogIn';
 import Homepage from './pages/Homepage';
 import Layout from './components/layout/Layout'
 import axios from "axios";
+import MessageDetail from "./pages/MessageDetail";
 
 function App() {
     const baseURL ="http://localhost:8083";
 
-    // axios.defaults.headers = {
-    //     'Access-Control-Allow-Origin': '*'
-    // }
 
-  let userPath = "";
+
   const [userId, setUserId] = useState('');
   const [isValidate, setIsValidate] = useState(false);
   const [post, setPost] = useState(null);
 
-      useEffect(() => {
-        axios.get(`${baseURL}/registerMember`).then((response) => {
-            setPost(response.data);
-        });
-    }, []);
+    //   useEffect(() => {
+    //     axios.get(`${baseURL}/registerMember`).then((response) => {
+    //         setPost(response.data);
+    //     });
+    // }, []);
 
-    function registerMember() {
-        axios
-            .post(baseURL, post)
+    function registerMember(postData) {
+        axios.post(`${baseURL}/registerMember`,postData)
             .then((response) => {
                 setPost(response.data);
             });
@@ -35,8 +32,7 @@ function App() {
 
  
   const addUserHandler = (registerUserObject) => {
-    setPost(registerUserObject);
-    registerMember();
+        registerMember(registerUserObject);
     alert('Assalam alaykum wa rahmotullahi, a mail has been sent to ' + registerUserObject.email + ' please log in to validate your account');
     window.location.href = './welcome';
   };
@@ -45,12 +41,11 @@ const logInHandler = (user, password) => {
   console.log(user);
   console.log(password);
   setUserId(user);
-  
    if (true) {
         setIsValidate(true);
-   } else (
-    setIsValidate(false)
-   )
+   } else {
+       setIsValidate(false);
+   }
 }
 
 const invalidateUser = (userId) => {
@@ -58,11 +53,18 @@ const invalidateUser = (userId) => {
   setIsValidate(false);
   };
 
+const refreshHomePage = (userId) =>{
+    alert('ayam want to refresh homepage now for user' + userId);
+    setUserId(userId);
+    setIsValidate(true);
+}
+
   return (
       <Layout userName={userId} isValid={isValidate} logOut={invalidateUser}>
       { isValidate ?  
         <div> 
-             <Homepage user={userId}/>
+             <Homepage user={userId} refreshHomePage={refreshHomePage}/>
+
         </div>
       :   
       <div> 

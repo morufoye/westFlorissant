@@ -1,0 +1,22 @@
+#messageList {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#messageList td, #messageList th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#messageList tr:nth-child(even){background-color: #f2f2f2;}
+
+#messageList tr:hover {background-color: #ddd;}
+
+#messageList th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #04AA6D;
+    color: white;
+}

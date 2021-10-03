@@ -1,5 +1,12 @@
 .main {
   margin: 3rem auto;
   width: 90%;
-  max-width: 40rem;
+  max-width: 80em;
+}
+
+
+.main_backup {
+  margin: 3rem auto;
+  width: 90%;
+  max-width: 100em;
 }
